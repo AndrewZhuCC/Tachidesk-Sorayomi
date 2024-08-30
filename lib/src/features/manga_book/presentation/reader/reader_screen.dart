@@ -20,6 +20,7 @@ import '../manga_details/controller/manga_details_controller.dart';
 import 'controller/reader_controller.dart';
 import 'widgets/reader_mode/continuous_reader_mode.dart';
 import 'widgets/reader_mode/single_page_reader_mode.dart';
+import 'widgets/reader_mode/single_page_split_reader_mode.dart';
 
 class ReaderScreen extends HookConsumerWidget {
   const ReaderScreen({
@@ -129,6 +130,13 @@ class ReaderScreen extends HookConsumerWidget {
                         reverse: true,
                         showReaderLayoutAnimation: showReaderLayoutAnimation,
                       ),
+                    ReaderMode.singleSplitHorizontalRTL => SinglePageSplitReaderMode(
+                        chapter: chapterData,
+                        manga: data,
+                        onPageChanged: onPageChanged,
+                        reverse: true,
+                        showReaderLayoutAnimation: showReaderLayoutAnimation,
+                      ),
                     ReaderMode.continuousHorizontalLTR => ContinuousReaderMode(
                         chapter: chapterData,
                         manga: data,
@@ -145,6 +153,11 @@ class ReaderScreen extends HookConsumerWidget {
                         showReaderLayoutAnimation: showReaderLayoutAnimation,
                       ),
                     ReaderMode.singleHorizontalLTR => SinglePageReaderMode(
+                        chapter: chapterData,
+                        manga: data,
+                        onPageChanged: onPageChanged,
+                      ),
+                    ReaderMode.singleSplitHorizontalLTR => SinglePageSplitReaderMode(
                         chapter: chapterData,
                         manga: data,
                         onPageChanged: onPageChanged,

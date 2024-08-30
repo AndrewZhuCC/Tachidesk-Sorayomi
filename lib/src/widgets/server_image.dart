@@ -29,6 +29,7 @@ class ServerImage extends HookConsumerWidget {
     required this.imageUrl,
     this.size,
     this.fit,
+    this.alignment,
     this.appendApiToUrl = false,
     this.progressIndicatorBuilder,
     this.wrapper,
@@ -38,6 +39,7 @@ class ServerImage extends HookConsumerWidget {
   final String imageUrl;
   final Size? size;
   final BoxFit? fit;
+  final Alignment? alignment;
   final bool appendApiToUrl;
   final Widget Function(BuildContext, String, DownloadProgress)?
       progressIndicatorBuilder;
@@ -125,6 +127,7 @@ class ServerImage extends HookConsumerWidget {
       httpHeaders: httpHeaders,
       width: size?.width,
       fit: fit ?? BoxFit.cover,
+      alignment: alignment ?? Alignment.center,
       imageRenderMethodForWeb: renderMethod,
       progressIndicatorBuilder: finalProgressIndicatorBuilder,
       errorWidget: errorWidget,

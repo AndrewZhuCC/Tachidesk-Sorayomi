@@ -110,6 +110,8 @@ const _$ReaderModeEnumMap = {
   ReaderMode.continuousVertical: 'continuousVertical',
   ReaderMode.singleHorizontalLTR: 'singleHorizontalLTR',
   ReaderMode.singleHorizontalRTL: 'singleHorizontalRTL',
+  ReaderMode.singleSplitHorizontalLTR: 'singleSplitHorizontalLTR',
+  ReaderMode.singleSplitHorizontalRTL: 'singleSplitHorizontalRTL',
   ReaderMode.continuousHorizontalLTR: 'continuousHorizontalLTR',
   ReaderMode.continuousHorizontalRTL: 'continuousHorizontalRTL',
   ReaderMode.singleVertical: 'singleVertical',

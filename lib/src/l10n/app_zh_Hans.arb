@@ -435,6 +435,14 @@
   "@readerModeSingleHorizontalRTL": {
     "description": "Radio button text for Reader Mode Type - Single Horizontal (RTL)"
   },
+  "readerModeSingleSplitHorizontalLTR": "从左到右（分页）（切割）",
+  "@readerModeSingleSplitHorizontalLTR": {
+    "description": "Radio button text for Reader Mode Type - Single Horizontal (LTR)"
+  },
+  "readerModeSingleSplitHorizontalRTL": "从右到左（分页）（切割）",
+  "@readerModeSingleSplitHorizontalRTL": {
+    "description": "Radio button text for Reader Mode Type - Single Horizontal (RTL)"
+  },
   "readerModeWebtoon": "条漫",
   "@readerModeWebtoon": {
     "description": "Radio button text for Reader Mode Type - Webtoon"

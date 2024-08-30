@@ -27,5 +27,13 @@
     ],
     "licenser.license": "MPLv2",
     "licenser.projectName": "Tachidesk-Sorayomi",
-    "licenser.author": "Contributors to the Suwayomi project"
+    "licenser.author": "Contributors to the Suwayomi project",
+    "dart.flutterSdkPath": "./.fvm/flutter_sdk",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f",
+        "activityBar.background": "#392C0B",
+        "titleBar.activeBackground": "#503D0F",
+        "titleBar.activeForeground": "#FDFBF5"
+    }
 }

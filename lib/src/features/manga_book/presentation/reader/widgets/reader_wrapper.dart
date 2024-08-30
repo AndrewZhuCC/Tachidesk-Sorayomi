@@ -53,6 +53,7 @@ class ReaderWrapper extends HookConsumerWidget {
     required this.onPrevious,
     required this.scrollDirection,
     this.showReaderLayoutAnimation = false,
+    this.pageCount,
   });
   final Widget child;
   final Manga manga;
@@ -61,6 +62,7 @@ class ReaderWrapper extends HookConsumerWidget {
   final VoidCallback onPrevious;
   final VoidCallback onNext;
   final int currentIndex;
+  final int? pageCount;
   final Axis scrollDirection;
   final bool showReaderLayoutAnimation;
 
@@ -300,7 +302,7 @@ class ReaderWrapper extends HookConsumerWidget {
                         Expanded(
                           child: PageNumberSlider(
                             currentValue: currentIndex,
-                            maxValue: chapter.pageCount ?? 1,
+                            maxValue: pageCount ?? chapter.pageCount ?? 1,
                             onChanged: (index) => onChanged(index),
                             inverted: invertTap,
                           ),
