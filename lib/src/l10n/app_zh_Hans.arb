@@ -435,6 +435,14 @@
   "@readerModeSingleHorizontalRTL": {
     "description": "Radio button text for Reader Mode Type - Single Horizontal (RTL)"
   },
+  "readerModeDoubleHorizontalLTR": "从左到右（双页）",
+  "@readerModeDoubleHorizontalLTR": {
+    "description": "Radio button text for Reader Mode Type - Double Horizontal (LTR)"
+  },
+  "readerModeDoubleHorizontalRTL": "从右到左（双页）",
+  "@readerModeDoubleHorizontalRTL": {
+    "description": "Radio button text for Reader Mode Type - Double Horizontal (RTL)"
+  },
   "readerModeSingleSplitHorizontalLTR": "从左到右（分页）（切割）",
   "@readerModeSingleSplitHorizontalLTR": {
     "description": "Radio button text for Reader Mode Type - Single Horizontal (LTR)"

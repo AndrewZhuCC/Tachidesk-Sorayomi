@@ -23,6 +23,8 @@ enum ReaderMode {
   continuousVertical,
   singleHorizontalLTR,
   singleHorizontalRTL,
+  doubleHorizontalLTR,
+  doubleHorizontalRTL,
   singleSplitHorizontalLTR,
   singleSplitHorizontalRTL,
   continuousHorizontalLTR,
@@ -38,6 +40,10 @@ enum ReaderMode {
           context.l10n!.readerModeSingleHorizontalLTR,
         ReaderMode.singleHorizontalRTL =>
           context.l10n!.readerModeSingleHorizontalRTL,
+        ReaderMode.doubleHorizontalLTR =>
+          context.l10n!.readerModeDoubleHorizontalLTR,
+        ReaderMode.doubleHorizontalRTL =>
+          context.l10n!.readerModeDoubleHorizontalRTL,
         ReaderMode.singleSplitHorizontalLTR =>
           context.l10n!.readerModeSingleSplitHorizontalLTR,
         ReaderMode.singleSplitHorizontalRTL =>

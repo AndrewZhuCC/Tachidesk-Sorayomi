@@ -31,7 +31,7 @@ class PageNumberSlider extends StatelessWidget {
         child: Transform.flip(
           flipX: inverted,
           child: Slider(
-            value: min(currentValue.toDouble(), maxValue.toDouble()),
+            value: min(currentValue.toDouble(), maxValue.toDouble() - 1),
             min: 0,
             max: maxValue.toDouble() - 1,
             divisions: max(maxValue - 1, 1),

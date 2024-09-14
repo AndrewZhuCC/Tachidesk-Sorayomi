@@ -21,6 +21,7 @@ import 'controller/reader_controller.dart';
 import 'widgets/reader_mode/continuous_reader_mode.dart';
 import 'widgets/reader_mode/single_page_reader_mode.dart';
 import 'widgets/reader_mode/single_page_split_reader_mode.dart';
+import 'widgets/reader_mode/double_page_reader_mode.dart';
 
 class ReaderScreen extends HookConsumerWidget {
   const ReaderScreen({
@@ -124,6 +125,19 @@ class ReaderScreen extends HookConsumerWidget {
                         showReaderLayoutAnimation: showReaderLayoutAnimation,
                       ),
                     ReaderMode.singleHorizontalRTL => SinglePageReaderMode(
+                        chapter: chapterData,
+                        manga: data,
+                        onPageChanged: onPageChanged,
+                        reverse: true,
+                        showReaderLayoutAnimation: showReaderLayoutAnimation,
+                      ),
+                    ReaderMode.doubleHorizontalLTR => DoublePageReaderMode(
+                        chapter: chapterData,
+                        manga: data,
+                        onPageChanged: onPageChanged,
+                        showReaderLayoutAnimation: showReaderLayoutAnimation,
+                      ),
+                    ReaderMode.doubleHorizontalRTL => DoublePageReaderMode(
                         chapter: chapterData,
                         manga: data,
                         onPageChanged: onPageChanged,
