@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -16,6 +17,7 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../../../../../../constants/app_constants.dart';
 import '../../../../../../constants/endpoints.dart';
 import '../../../../../../utils/extensions/custom_extensions.dart';
+import '../../../../../../utils/extensions/cache_manager_extensions.dart';
 import '../../../../../../utils/misc/app_utils.dart';
 import '../../../../../../widgets/server_image.dart';
 import '../../../../../settings/presentation/reader/widgets/reader_pinch_to_zoom/reader_pinch_to_zoom.dart';
@@ -45,6 +47,7 @@ class ContinuousReaderMode extends HookConsumerWidget {
   final bool showReaderLayoutAnimation;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final cacheManager = useMemoized(() => DefaultCacheManager());
     final scrollController = useMemoized(() => ItemScrollController());
     final positionsListener = useMemoized(() => ItemPositionsListener.create());
     final currentIndex = useState(
@@ -55,6 +58,40 @@ class ContinuousReaderMode extends HookConsumerWidget {
     useEffect(() {
       if (onPageChanged != null) {
         onPageChanged!(currentIndex.value);
+      }
+      int currentPage = currentIndex.value;
+      // Next page
+      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 1)) {
+        cacheManager.getServerFile(
+          ref,
+          MangaUrl.chapterPageWithIndex(
+            chapterIndex: chapter.index!,
+            mangaId: manga.id!,
+            pageIndex: currentPage + 1,
+          ),
+        );
+      }
+      // 2nd next page
+      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 2)) {
+        cacheManager.getServerFile(
+          ref,
+          MangaUrl.chapterPageWithIndex(
+            chapterIndex: chapter.index!,
+            mangaId: manga.id!,
+            pageIndex: currentPage + 2,
+          ),
+        );
+      }
+      // 3nd next page
+      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 3)) {
+        cacheManager.getServerFile(
+          ref,
+          MangaUrl.chapterPageWithIndex(
+            chapterIndex: chapter.index!,
+            mangaId: manga.id!,
+            pageIndex: currentPage + 3,
+          ),
+        );
       }
       return;
     }, [currentIndex.value]);
