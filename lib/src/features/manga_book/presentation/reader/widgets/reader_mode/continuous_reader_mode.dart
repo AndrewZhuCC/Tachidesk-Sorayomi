@@ -71,11 +71,7 @@ class ContinuousReaderMode extends HookConsumerWidget {
         if (currentPage > i) {
           cacheManager.getServerFile(
             ref,
-            MangaUrl.chapterPageWithIndex(
-              chapterIndex: chapter.index!,
-              mangaId: manga.id!,
-              pageIndex: currentPage - i,
-            ),
+            chapterPages.pages[currentPage - i],
           );
         }
       }

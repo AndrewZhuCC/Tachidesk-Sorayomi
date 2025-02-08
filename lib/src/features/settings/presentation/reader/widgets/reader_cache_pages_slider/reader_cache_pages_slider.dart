@@ -36,7 +36,7 @@ class ReaderCachePagesSlider extends ConsumerWidget {
             DBKeys.readerCachePages.initial;
     return SliderSettingTile(
       icon: Icons.search,
-      title: context.l10n!.readerCachePages,
+      title: context.l10n.readerCachePages,
       value: readerCachePages.toDouble(),
       getSliderLabel: (val) => val.toInt().toStringAsFixed(0),
       onChanged: (val) => ref.read(readerCachePagesKeyProvider.notifier).update(val.toInt()),

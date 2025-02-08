@@ -73,7 +73,7 @@ class SinglePageReaderMode extends HookConsumerWidget {
       if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 2)) {
         cacheManager.getServerFile(
           ref,
-          chapterPages.pages[currentPage + 1],
+          chapterPages.pages[currentPage + 2],
         );
       }
       return null;

@@ -184,6 +184,7 @@ class ReaderScreen extends HookConsumerWidget {
                           manga: data,
                           onPageChanged: onPageChanged,
                           showReaderLayoutAnimation: showReaderLayoutAnimation,
+                          chapterPages: chapterPagesData,
                         ),
                         ReaderMode.doubleHorizontalRTL => DoublePageReaderMode(
                           chapter: chapterData,
@@ -191,6 +192,7 @@ class ReaderScreen extends HookConsumerWidget {
                           onPageChanged: onPageChanged,
                           reverse: true,
                           showReaderLayoutAnimation: showReaderLayoutAnimation,
+                          chapterPages: chapterPagesData,
                         ),
                         ReaderMode.singleSplitHorizontalRTL => SinglePageSplitReaderMode(
                           chapter: chapterData,
@@ -198,11 +200,13 @@ class ReaderScreen extends HookConsumerWidget {
                           onPageChanged: onPageChanged,
                           reverse: true,
                           showReaderLayoutAnimation: showReaderLayoutAnimation,
+                          chapterPages: chapterPagesData,
                         ),
                         ReaderMode.singleSplitHorizontalLTR => SinglePageSplitReaderMode(
                           chapter: chapterData,
                           manga: data,
                           onPageChanged: onPageChanged,
+                          chapterPages: chapterPagesData,
                         ),
                         ReaderMode.webtoon => ContinuousReaderMode(
                             chapter: chapterData,
