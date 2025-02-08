@@ -791,6 +791,10 @@
   "@readerMagnifierSize": {
     "description": "Slider title text for Reader Magnifier Size"
   },
+  "readerCachePages": "缓存页数",
+  "@readerCachePages": {
+    "description": "Slider title text for Reader Cache Pages"
+  },
   "clearCache": "清除缓存",
   "@clearCache": {
     "description": "Button text for clear cache in General Settings screen"

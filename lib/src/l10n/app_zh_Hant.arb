@@ -511,6 +511,10 @@
   "@readerMagnifierSize": {
     "description": "Slider title text for Reader Magnifier Size"
   },
+  "readerCachePages": "缓存页数",
+  "@readerCachePages": {
+    "description": "Slider title text for Reader Cache Pages"
+  },
   "chapterSortUploadDate": "按上傳日期",
   "@chapterSortUploadDate": {
     "description": "Radio button text for sort by Upload Date"

@@ -12,6 +12,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../utils/extensions/custom_extensions.dart';
+import 'widgets/reader_cache_pages_slider/reader_cache_pages_slider.dart';
 import 'widgets/reader_initial_overlay_tile/reader_initial_overlay_tile.dart';
 import 'widgets/reader_invert_tap_tile/reader_invert_tap_tile.dart';
 import 'widgets/reader_magnifier_size_slider/reader_magnifier_size_slider.dart';
@@ -42,6 +43,7 @@ class ReaderSettingsScreen extends ConsumerWidget {
           const ReaderScrollAnimationTile(),
           const ReaderPaddingSlider(),
           const ReaderMagnifierSizeSlider(),
+          const ReaderCachePagesSlider(),
           if (!kIsWeb) ...[
             if (Platform.isAndroid || Platform.isIOS) const ReaderPinchToZoom(),
             if (Platform.isAndroid) ...[

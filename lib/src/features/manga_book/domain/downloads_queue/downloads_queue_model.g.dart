@@ -11,14 +11,14 @@ _$DownloadsQueueImpl _$$DownloadsQueueImplFromJson(Map<String, dynamic> json) =>
       chapter: json['chapter'] == null
           ? null
           : Chapter.fromJson(json['chapter'] as Map<String, dynamic>),
-      chapterIndex: json['chapterIndex'] as int?,
+      chapterIndex: (json['chapterIndex'] as num?)?.toInt(),
       manga: json['manga'] == null
           ? null
           : Manga.fromJson(json['manga'] as Map<String, dynamic>),
-      mangaId: json['mangaId'] as int?,
+      mangaId: (json['mangaId'] as num?)?.toInt(),
       progress: (json['progress'] as num?)?.toDouble(),
       state: json['state'] as String?,
-      tries: json['tries'] as int?,
+      tries: (json['tries'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$DownloadsQueueImplToJson(

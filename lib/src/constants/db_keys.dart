@@ -23,6 +23,7 @@ enum DBKeys {
   readerMode(ReaderMode.webtoon),
   readerPadding(0.0),
   readerMagnifierSize(1.0),
+  readerCachePages(10),
   readerNavigationLayout(ReaderNavigationLayout.disabled),
   invertTap(false),
   quickSearchToggle(true),

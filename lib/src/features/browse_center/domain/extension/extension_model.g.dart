@@ -17,7 +17,7 @@ _$ExtensionImpl _$$ExtensionImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       obsolete: json['obsolete'] as bool?,
       pkgName: json['pkgName'] as String?,
-      versionCode: json['versionCode'] as int?,
+      versionCode: (json['versionCode'] as num?)?.toInt(),
       versionName: json['versionName'] as String?,
     );
 

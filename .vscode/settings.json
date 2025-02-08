@@ -35,5 +35,6 @@
         "activityBar.background": "#392C0B",
         "titleBar.activeBackground": "#503D0F",
         "titleBar.activeForeground": "#FDFBF5"
-    }
+    },
+    "cmake.ignoreCMakeListsMissing": true
 }

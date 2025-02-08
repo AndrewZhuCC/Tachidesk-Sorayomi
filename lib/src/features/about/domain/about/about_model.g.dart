@@ -11,7 +11,7 @@ _$AboutImpl _$$AboutImplFromJson(Map<String, dynamic> json) => _$AboutImpl(
       version: json['version'] as String?,
       revision: json['revision'] as String?,
       buildType: json['buildType'] as String?,
-      buildTime: json['buildTime'] as int?,
+      buildTime: (json['buildTime'] as num?)?.toInt(),
       github: json['github'] as String?,
       discord: json['discord'] as String?,
     );

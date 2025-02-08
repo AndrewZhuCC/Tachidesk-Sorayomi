@@ -13,6 +13,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:tachidesk_sorayomi/src/constants/db_keys.dart';
 
 import '../../../../../../constants/app_constants.dart';
 import '../../../../../../constants/endpoints.dart';
@@ -20,6 +21,7 @@ import '../../../../../../utils/extensions/custom_extensions.dart';
 import '../../../../../../utils/extensions/cache_manager_extensions.dart';
 import '../../../../../../utils/misc/app_utils.dart';
 import '../../../../../../widgets/server_image.dart';
+import '../../../../../settings/presentation/reader/widgets/reader_cache_pages_slider/reader_cache_pages_slider.dart';
 import '../../../../../settings/presentation/reader/widgets/reader_pinch_to_zoom/reader_pinch_to_zoom.dart';
 import '../../../../../settings/presentation/reader/widgets/reader_scroll_animation_tile/reader_scroll_animation_tile.dart';
 import '../../../../domain/chapter/chapter_model.dart';
@@ -55,43 +57,25 @@ class ContinuousReaderMode extends HookConsumerWidget {
           ? 0
           : (chapter.lastPageRead).getValueOnNullOrNegative(),
     );
+    final int localMangaReaderCachePages =
+        ref.watch(readerCachePagesKeyProvider) ??
+            DBKeys.readerCachePages.initial;
     useEffect(() {
       if (onPageChanged != null) {
         onPageChanged!(currentIndex.value);
       }
       int currentPage = currentIndex.value;
-      // Next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 1)) {
-        cacheManager.getServerFile(
-          ref,
-          MangaUrl.chapterPageWithIndex(
-            chapterIndex: chapter.index!,
-            mangaId: manga.id!,
-            pageIndex: currentPage + 1,
-          ),
-        );
-      }
-      // 2nd next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 2)) {
-        cacheManager.getServerFile(
-          ref,
-          MangaUrl.chapterPageWithIndex(
-            chapterIndex: chapter.index!,
-            mangaId: manga.id!,
-            pageIndex: currentPage + 2,
-          ),
-        );
-      }
-      // 3nd next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 3)) {
-        cacheManager.getServerFile(
-          ref,
-          MangaUrl.chapterPageWithIndex(
-            chapterIndex: chapter.index!,
-            mangaId: manga.id!,
-            pageIndex: currentPage + 3,
-          ),
-        );
+      for (int i = 0; i < localMangaReaderCachePages; i++) {
+        if (currentPage > i) {
+          cacheManager.getServerFile(
+            ref,
+            MangaUrl.chapterPageWithIndex(
+              chapterIndex: chapter.index!,
+              mangaId: manga.id!,
+              pageIndex: currentPage - i,
+            ),
+          );
+        }
       }
       return;
     }, [currentIndex.value]);

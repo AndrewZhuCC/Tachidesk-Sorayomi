@@ -848,6 +848,7 @@
     "quickSearchSourceManga": "Search for Manga 'M' in Source 'S'",
     "reader": "Reader",
     "readerMagnifierSize": "Magnifier Size",
+    "readerCachePages": "Reader Cache Pages",
     "readerMode": "Reading Mode",
     "readerModeContinuousHorizontalLTR": "Continuous Horizontal (LTR)",
     "readerModeContinuousHorizontalRTL": "Continuous Horizontal (RTL)",

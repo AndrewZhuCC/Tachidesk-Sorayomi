@@ -8,9 +8,9 @@ part of 'category_model.dart';
 
 _$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
     _$CategoryImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
-      order: json['order'] as int?,
+      order: (json['order'] as num?)?.toInt(),
       defaultCategory: json['default'] as bool?,
     );
 

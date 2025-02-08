@@ -10,9 +10,9 @@ _$MangaImpl _$$MangaImplFromJson(Map<String, dynamic> json) => _$MangaImpl(
       artist: json['artist'] as String?,
       author: json['author'] as String?,
       description: json['description'] as String?,
-      downloadCount: json['downloadCount'] as int?,
-      chapterCount: json['chapterCount'] as int?,
-      lastReadAt: json['lastReadAt'] as int?,
+      downloadCount: (json['downloadCount'] as num?)?.toInt(),
+      chapterCount: (json['chapterCount'] as num?)?.toInt(),
+      lastReadAt: (json['lastReadAt'] as num?)?.toInt(),
       lastChapterRead: json['lastChapterRead'] == null
           ? null
           : Chapter.fromJson(json['lastChapterRead'] as Map<String, dynamic>),
@@ -20,8 +20,8 @@ _$MangaImpl _$$MangaImplFromJson(Map<String, dynamic> json) => _$MangaImpl(
       genre:
           (json['genre'] as List<dynamic>?)?.map((e) => e as String).toList(),
       inLibrary: json['inLibrary'] as bool?,
-      id: json['id'] as int?,
-      inLibraryAt: json['inLibraryAt'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      inLibraryAt: (json['inLibraryAt'] as num?)?.toInt(),
       initialized: json['initialized'] as bool?,
       realUrl: json['realUrl'] as String?,
       source: json['source'] == null
@@ -30,11 +30,12 @@ _$MangaImpl _$$MangaImplFromJson(Map<String, dynamic> json) => _$MangaImpl(
       sourceId: json['sourceId'] as String?,
       status: MangaStatus.fromJson(json['status'] as String),
       thumbnailUrl: json['thumbnailUrl'] as String?,
-      thumbnailUrlLastFetched: json['thumbnailUrlLastFetched'] as int?,
+      thumbnailUrlLastFetched:
+          (json['thumbnailUrlLastFetched'] as num?)?.toInt(),
       title: json['title'] as String?,
-      unreadCount: json['unreadCount'] as int?,
-      lastFetchedAt: json['lastFetchedAt'] as int?,
-      chaptersLastFetchedAt: json['chaptersLastFetchedAt'] as int?,
+      unreadCount: (json['unreadCount'] as num?)?.toInt(),
+      lastFetchedAt: (json['lastFetchedAt'] as num?)?.toInt(),
+      chaptersLastFetchedAt: (json['chaptersLastFetchedAt'] as num?)?.toInt(),
       url: json['url'] as String?,
       meta: json['meta'] == null
           ? null
@@ -110,10 +111,10 @@ const _$ReaderModeEnumMap = {
   ReaderMode.continuousVertical: 'continuousVertical',
   ReaderMode.singleHorizontalLTR: 'singleHorizontalLTR',
   ReaderMode.singleHorizontalRTL: 'singleHorizontalRTL',
-  ReaderMode.singleSplitHorizontalLTR: 'singleSplitHorizontalLTR',
-  ReaderMode.singleSplitHorizontalRTL: 'singleSplitHorizontalRTL',
   ReaderMode.doubleHorizontalLTR: 'doubleHorizontalLTR',
   ReaderMode.doubleHorizontalRTL: 'doubleHorizontalRTL',
+  ReaderMode.singleSplitHorizontalLTR: 'singleSplitHorizontalLTR',
+  ReaderMode.singleSplitHorizontalRTL: 'singleSplitHorizontalRTL',
   ReaderMode.continuousHorizontalLTR: 'continuousHorizontalLTR',
   ReaderMode.continuousHorizontalRTL: 'continuousHorizontalRTL',
   ReaderMode.singleVertical: 'singleVertical',
