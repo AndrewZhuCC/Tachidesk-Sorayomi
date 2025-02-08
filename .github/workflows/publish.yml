@@ -127,6 +127,12 @@ jobs:
           zip -r app-release.ipa Payload
           mv app-release.ipa "$GITHUB_WORKSPACE/${{ env.pkg_name }}-${{ github.ref_name }}-${{ matrix.target }}.ipa"
 
+      - name: Upload ios artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa
+          path: "${{ env.pkg_name }}-${{ github.ref_name }}-${{ matrix.target }}.ipa"
+
       - name: Compress build for Web
         if: matrix.target == 'web'
         working-directory: ${{ matrix.build_path }}
@@ -191,25 +197,25 @@ jobs:
           files: ${{ env.pkg_name }}*
           token: ${{ secrets.WINGET }}
 
-  winget-publish:
-    needs: create-build
-    runs-on: windows-latest # action can only be run on windows
-    steps:
-      - name: Update WINGET manifest
-        uses: vedantmgoyal2009/winget-releaser@v2
-        with:
-          identifier: Suwayomi.Tachidesk-Sorayomi
-          version: ${{ github.ref_name }}
-          token: ${{ secrets.WINGET }}
+  # winget-publish:
+  #   needs: create-build
+  #   runs-on: windows-latest # action can only be run on windows
+  #   steps:
+  #     - name: Update WINGET manifest
+  #       uses: vedantmgoyal2009/winget-releaser@v2
+  #       with:
+  #         identifier: Suwayomi.Tachidesk-Sorayomi
+  #         version: ${{ github.ref_name }}
+  #         token: ${{ secrets.WINGET }}
 
-  homebrew-cask-publish:
-    needs: create-build
-    runs-on: macos-latest
-    steps:
-      - name: Update Homebrew cask
-        uses: macauley/action-homebrew-bump-cask@v1
-        with:
-          token: ${{secrets.WINGET}}
-          tap: homebrew/homebrew-cask
-          cask: tachidesk-sorayomi
-          livecheck: true
+  # homebrew-cask-publish:
+  #   needs: create-build
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Update Homebrew cask
+  #       uses: macauley/action-homebrew-bump-cask@v1
+  #       with:
+  #         token: ${{secrets.WINGET}}
+  #         tap: homebrew/homebrew-cask
+  #         cask: tachidesk-sorayomi
+  #         livecheck: true
