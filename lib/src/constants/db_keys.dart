@@ -50,6 +50,7 @@ enum DBKeys {
   readerOverlay(true),
   volumeTap(false),
   volumeTapInvert(false),
+  hideEmptyCategory(false),
   pinchToZoom(true),
   flexScheme(FlexScheme.material),
   ;
