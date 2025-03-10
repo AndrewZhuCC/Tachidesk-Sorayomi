@@ -77,6 +77,8 @@ class CategoryMangaListWithQueryAndFilter
                 .compareTo(m2.unreadCount.getValueOnNullOrNegative()),
             MangaSort.dateAdded => (m1.inLibraryAt.getValueOnNullOrNegative())
                 .compareTo(m2.inLibraryAt.getValueOnNullOrNegative()),
+            MangaSort.lastRead => (m2.lastReadChapter?.lastReadAt.getValueOnNullOrNegative() ?? 0)
+                .compareTo(m1.lastReadChapter?.lastReadAt.getValueOnNullOrNegative() ?? 0),
           }) *
           sortDirToggle;
     }
