@@ -64,14 +64,14 @@ class DoublePageReaderMode extends HookConsumerWidget {
         );
       }
       // Next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 1)) {
+      if (currentPage < (chapterPages.chapter.pageCount - 1)) {
         cacheManager.getServerFile(
           ref,
           chapterPages.pages[currentPage + 1],
         );
       }
       // 2nd next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 2)) {
+      if (currentPage < (chapterPages.chapter.pageCount - 2)) {
         cacheManager.getServerFile(
           ref,
           chapterPages.pages[currentPage + 2],
@@ -96,7 +96,7 @@ class DoublePageReaderMode extends HookConsumerWidget {
       manga: manga,
       chapterPages: chapterPages,
       currentIndex: currentIndex.value,
-      pageCount: chapter.pageCount != null ? (chapter.pageCount! / 2).ceil() : null,
+      pageCount: (chapterPages.chapter.pageCount / 2).ceil(),
       onChanged: (index) => scrollController.jumpToPage(index),
       showReaderLayoutAnimation: showReaderLayoutAnimation,
       onPrevious: () => scrollController.previousPage(
@@ -127,7 +127,7 @@ class DoublePageReaderMode extends HookConsumerWidget {
             alignment: reverse ? Alignment.centerLeft : Alignment.centerRight,
           );
           ServerImage? image2;
-          if (pageIndex + 1 < chapter.pageCount.getValueOnNullOrNegative()) {
+          if (pageIndex + 1 < chapterPages.chapter.pageCount) {
             image2 = ServerImage(
               showReloadButton: true,
               fit: BoxFit.contain,
@@ -155,7 +155,7 @@ class DoublePageReaderMode extends HookConsumerWidget {
                     ])),
           );
         },
-        itemCount: chapter.pageCount != null ? (chapter.pageCount! / 2).ceil() : null,
+        itemCount: (chapterPages.chapter.pageCount / 2).ceil(),
       ),
     );
   }

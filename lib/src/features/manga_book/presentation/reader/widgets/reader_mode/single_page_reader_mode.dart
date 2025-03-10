@@ -63,14 +63,14 @@ class SinglePageReaderMode extends HookConsumerWidget {
         );
       }
       // Next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 1)) {
+      if (currentPage < (chapterPages.chapter.pageCount - 1)) {
         cacheManager.getServerFile(
           ref,
           chapterPages.pages[currentPage + 1],
         );
       }
       // 2nd next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 2)) {
+      if (currentPage < (chapterPages.chapter.pageCount - 2)) {
         cacheManager.getServerFile(
           ref,
           chapterPages.pages[currentPage + 2],
@@ -129,7 +129,7 @@ class SinglePageReaderMode extends HookConsumerWidget {
             image,
           );
         },
-        itemCount: chapter.pageCount.getValueOnNullOrNegative(),
+        itemCount: chapterPages.chapter.pageCount,
       ),
     );
   }

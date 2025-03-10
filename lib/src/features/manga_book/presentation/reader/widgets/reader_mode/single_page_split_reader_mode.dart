@@ -64,14 +64,14 @@ class SinglePageSplitReaderMode extends HookConsumerWidget {
         );
       }
       // Next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 1)) {
+      if (currentPage < (chapterPages.chapter.pageCount - 1)) {
         cacheManager.getServerFile(
           ref,
           chapterPages.pages[currentPage + 1],
         );
       }
       // 2nd next page
-      if (currentPage < (chapter.pageCount.getValueOnNullOrNegative() - 2)) {
+      if (currentPage < (chapterPages.chapter.pageCount - 2)) {
         cacheManager.getServerFile(
           ref,
           chapterPages.pages[currentPage + 2],
@@ -96,7 +96,7 @@ class SinglePageSplitReaderMode extends HookConsumerWidget {
       manga: manga,
       chapterPages: chapterPages,
       currentIndex: currentIndex.value,
-      pageCount: chapter.pageCount != null ? chapter.pageCount! * 2 : null,
+      pageCount: chapterPages.chapter.pageCount * 2,
       onChanged: (index) => scrollController.jumpToPage(index),
       showReaderLayoutAnimation: showReaderLayoutAnimation,
       onPrevious: () => scrollController.previousPage(
@@ -133,7 +133,7 @@ class SinglePageSplitReaderMode extends HookConsumerWidget {
             image,
           );
         },
-        itemCount: chapter.pageCount != null ? chapter.pageCount! * 2 : null,
+        itemCount: chapterPages.chapter.pageCount * 2,
       ),
     );
   }
